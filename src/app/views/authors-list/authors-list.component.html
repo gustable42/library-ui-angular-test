@@ -1,0 +1,36 @@
+<div class="container pt-4 pb-4">
+    <div class="d-flex align-items-end mb-4">
+        <div class="form-group mb-0">
+            <label class="search-field-label">Search:</label>
+            <input class="form-control search-field" [(ngModel)]="searchField">
+        </div>
+        <button class="btn btn-primary ml-2" (click)="searchForAuthors()">Buscar</button>
+    </div>
+    <div class="row">
+        <div class="col-6" *ngFor="let author of authors?.docs">
+            <div class="card mb-2" class="author">
+                <header class="card-header">
+                    <h4>{{author.name}}</h4>
+                </header>
+                <div class="card-body">
+                    <p>
+                        <i class="fas fa-baby"></i>
+                        <span>{{author.birth_date}}</span>
+                    </p>
+                    <p>
+                        <i class="fas fa-cross"></i>
+                        <span>{{author.death_date ? author.death_date : 'Not dead yet'}}</span>
+                    </p>
+                    <p>
+                        <span><strong>{{author.work_count}}</strong> books written.</span>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex align-items-end flex-column">
+                        <button [routerLink]="[author.key]" class="btn btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

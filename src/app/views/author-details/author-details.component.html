@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>{{author?.name}}</h2>
+    <table class="table mt-4">
+        <thead>
+             <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let work of works">
+                <td>{{work?.title}}</td>
+                <td>{{work?.created?.value | date:'MM/dd/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
